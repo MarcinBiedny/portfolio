@@ -3,7 +3,12 @@
 # 1. get user inputs:
 #   1a. get operation type
 #       validation: allowed = ['+', '-', '*', '/']
-
+#   1b. get first number
+#       validation: number = integer
+#   1c. get second number
+#       validation: number = integer
+# 2. make calculations
+# 3. display the result
 
 ALLOWED_OPERATION_TYPES = ['+', '-', '*', '/']
 
@@ -27,5 +32,14 @@ second_number = int(input("Please provide second number: \n"))
 
 if operation_type == '+':
     calculated_value = add (first_number, second_number)
+
+if operation_type == '-':
+    calculated_value = substract (first_number, second_number)
+
+if operation_type == '*':
+    calculated_value = multiply (first_number, second_number)
+
+if operation_type == '/':
+    calculated_value = divide (first_number, second_number)
 
 print('Calculated value = ' + str(calculated_value))
