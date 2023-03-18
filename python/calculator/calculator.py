@@ -11,6 +11,7 @@
 # 3. display the result
 
 ALLOWED_OPERATION_TYPES = ['+', '-', '*', '/']
+ALLOWED_RETRY_COUNT = 5
 
 def add(n1, n2):
     return n1+n2
@@ -29,6 +30,16 @@ else:
 
 first_number = int(input("Please provide first number: \n"))
 second_number = int(input("Please provide second number: \n"))
+
+retry_count = 0
+
+while operation_type == '/' and second_number == 0:
+    print("Second number can't be 0")
+    second_number = int(input("Please provide another second number: \n"))
+    retry_count += 1
+    if retry_count == ALLOWED_RETRY_COUNT:
+        print("Too many retries, quitting...")
+        quit()
 
 if operation_type == '+':
     calculated_value = add (first_number, second_number)
