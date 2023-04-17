@@ -1,0 +1,3 @@
+Poznań podstawy Pythona
+Napisać pierwszą aplikację w Pythonie
+Uczyć się dalej Pythona
