@@ -1,52 +1,59 @@
 import requests as r
 import json as j
 import datetime
-
+from typing import Union
 
 EXCHANGE_RATE_KEY = 'mid'
 HTTP_STATUS_OK = 200
+USER_INPUT_RETRY_END_COUNT = 2
 
+table_currency_code_mapping = {
+    "A": ["USD", "AUD", "EUR", "CHF"],
+    "B": ["ZMW", "MDL", "ARS"],
+}
 
-currencies_and_tables = {"USD": "A",
-                         "AUD": "A",
-                         "EUR": "A",
-                         "CHF": "A",
-                         "JPN": "A",
-                         "ZMW": "B",
-                         "MDL": "B",
-                         "ARS": "B",}
+def getCurrencyCodeTable(currency_code) -> Union[str, None]:
+    for table in table_currency_code_mapping.keys():
+        if currency_code in table_currency_code_mapping[table]:
+            return table
 
+    return None
 
-print("This program allows you to check the average rates of the following currencies:: USD, AUD, EUR, CHF, JPN, ZMW (kwacha zambijska), MDL (lej Mołdawii), ARS (peso argentyńskie), ")
+print("This program allows you to check the average rates of the following currencies: USD, AUD, EUR, CHF, JPN, ZMW (kwacha zambijska), MDL (lej Mołdawii), ARS (peso argentyńskie).")
 
-currency = input("Please enter the currency you want to check: \n")
+for user_input_count in range(1, USER_INPUT_RETRY_END_COUNT + 1):
+    currency_code = input(
+        "Please enter the currency you want to check:\n").upper()
 
-while currency.upper() not in currencies_and_tables:
-    print("Unfortunately, I do not know such currency.")
-    currency = input("Please enter the currency you want to check: \n")
+    table = getCurrencyCodeTable(currency_code)
+    if table == None:
+        print("Unfortunately, I do not know such currency.")
+    else:
+        break
 
-table = currencies_and_tables[currency.upper()]
+    if user_input_count == USER_INPUT_RETRY_END_COUNT and table == None:
+        print("Zaduża liczba prób.. żegnam ozięble!")
+        quit()
 
-date = input("Please enter the date in the format YYYY-MM-DD: ")
+table = getCurrencyCodeTable(currency_code)
 
-url = f"http://api.nbp.pl/api/exchangerates/rates/{table}/{currency}/{date}/"
+date_as_string = input("Please enter the date in the format YYYY-MM-DD:\n")
+
+url = f"http://api.nbp.pl/api/exchangerates/rates/{table}/{currency_code}/{date_as_string}/"
 response = r.get(url)
 
-#print(response.status_code)
-
+date = datetime.datetime.strptime(date_as_string, '%Y-%m-%d').date()
 while response.status_code != HTTP_STATUS_OK:
-    new_date = datetime.datetime.strptime(date, '%Y-%m-%d').date()
-    new_date = new_date - datetime.timedelta(days=1)
-    date = new_date.strftime('%Y-%m-%d')
-    url = f"http://api.nbp.pl/api/exchangerates/rates/{table}/{currency}/{date}/"
+    date_as_string = date.strftime('%Y-%m-%d')
+    url = f"http://api.nbp.pl/api/exchangerates/rates/{table}/{currency_code}/{date_as_string}/"
     response = r.get(url)
+    date = date - datetime.timedelta(days=1)
 
 response_as_json = j.loads(response.text)
-print('Kurs PLN/'+currency.upper()+' na dzień '+response_as_json['rates'][0]['effectiveDate']+' wynosi '+str(response_as_json['rates'][0][EXCHANGE_RATE_KEY]))
 
-#if response.status_code == HTTP_STATUS_OK:
-#    response_as_json = j.loads(response.text)
-#    print('Kurs PLN/'+currency.upper()+' na dzień '+response_as_json['rates'][0]['effectiveDate']+' wynosi '+str(response_as_json['rates'][0][EXCHANGE_RATE_KEY]))
-
-#else:
-#    print("Something was wrong. Unexpected response status code: " + str(response.status_code))
+print("Kurs PLN/{} tabela {} na dzień {} wynosi {}".format(
+    currency_code,
+    table,
+    response_as_json['rates'][0]['effectiveDate'],
+    str(response_as_json['rates'][0][EXCHANGE_RATE_KEY])
+))
