@@ -12,3 +12,10 @@ class Board:
             #     print(column, end='\t|')
             print('\t|\t'.join(row))
             print()
+
+    def is_full(self):
+        for row in self.area:
+            for cell in row:
+                if cell == '':
+                    return False
+        return True
