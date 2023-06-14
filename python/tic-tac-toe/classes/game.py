@@ -16,11 +16,11 @@ class Game:
 
             row = int(input("Which row would you like to place your symbol on?\n"))
             while not row <= self.MAX_ROW:
-                row = int(input("Movement off the board. Enter another row:\n"))
+                row = int(input("Move out of the board range. Enter another row value:\n"))
             
             column = int(input("In which column would you like to place your symbol?\n"))
             while not column <= self.MAX_COLUMN:
-                column = int(input("Movement off the board. Enter another column:\n"))
+                column = int(input("Move out of the board range. Enter another column value:\n"))
 
             while not self.board.area[row][column] == '':
                 print("This space on the board is already occupied.\n")

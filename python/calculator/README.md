@@ -1,12 +1,8 @@
 # python/calculator
 
-
-
 ### What the project does
 
 In this project, the user can use the basic functions of the calculator such as: addition, subtraction, multiplication and division.
-
-
 
 ### Why the project is useful
 
