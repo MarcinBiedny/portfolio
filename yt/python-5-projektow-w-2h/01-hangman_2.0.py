@@ -1,20 +1,39 @@
 """
-- przetłumaczyć grę na język angielski
-- walidacja (tylko litery)
-- nie pozwolić na powtarzanie liter
-- lista słów do odgadnięcia
-- losowanie słowa z listy (brak powtórzeń w kolejnych grach)
-- wybór restart/zakończenie gry
-- wybór ilości szans w grze
+- translate the game into English - check
+- validation (letters only)
+- do not allow repeated letters
+- word list to guess
+- drawing a word from the list (no repetitions in subsequent games)
+- select restart/quit game
+- selection of the number of chances / game difficulty level - check
 """
 
 import sys
 
-no_of_tries = 5
+#global no_of_tries
+#no_of_tries = 5
 word = "marcin"
 used_letters = []
 
 user_word =[]
+
+def difficulty_level():
+    global no_of_tries
+    while True:
+        difficulty = input("Choose your difficulty level: easy/normal/hard.\n")
+        if difficulty.lower() == "easy":
+            no_of_tries = int(7)
+            break
+        elif difficulty.lower() == "normal":
+            no_of_tries = int(5)
+            break
+        elif difficulty.lower() == "hard":
+            no_of_tries = int(3)
+            break
+        else:
+            print("Wrong difficulty level. Choose again")
+    print("Number of tries: "+str(no_of_tries))
+    return no_of_tries
 
 def find_indexes(word, letter):
     indexes = []
@@ -28,32 +47,37 @@ def find_indexes(word, letter):
 def show_state_of_game():
     print()
     print(user_word)
-    print("Pozostało prób: ", no_of_tries)
-    print("Użyte litery: ", used_letters)
+    print("Trials left: ", no_of_tries)
+    print("Letters used: ", used_letters)
     print()
 
-for _ in word:
-    user_word.append("_")
+def new_game():
+    difficulty_level()
+    global no_of_tries
+    for _ in word:
+        user_word.append("_")
 
-while True:
-    letter = input("Podaj literę: ")
-    used_letters.append(letter)
+    while True:
+        letter = input("Enter a letter: ")
+        used_letters.append(letter)
 
-    found_indexes = find_indexes(word, letter)
+        found_indexes = find_indexes(word, letter)
 
-    if len(found_indexes) == 0:
-        print("Nie ma takiej litery.")
-        no_of_tries -=1
+        if len(found_indexes) == 0:
+            print("There is no such letter.")
+            no_of_tries -=1
 
-        if no_of_tries == 0:
-            print("Koniec gry :(")
-            sys.exit(0)
-    else:
-        for index in found_indexes:
-            user_word[index] = letter
-    
-        if "".join(user_word) == word:
-            print("Brawo, to jest to słowo!")
-            sys.exit(0)
+            if no_of_tries == 0:
+                print("GAME OVER :(")
+                sys.exit(0)
+        else:
+            for index in found_indexes:
+                user_word[index] = letter
+        
+            if "".join(user_word) == word:
+                print("Bravo, that's the word!")
+                sys.exit(0)
 
-    show_state_of_game()
+        show_state_of_game()
+
+new_game()
