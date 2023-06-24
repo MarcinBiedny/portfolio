@@ -4,14 +4,12 @@
 - do not allow repeated letters
 - word list to guess
 - drawing a word from the list (no repetitions in subsequent games)
-- select restart/quit game
+- select restart/quit game - check
 - selection of the number of chances / game difficulty level - check
 """
 
 import sys
 
-#global no_of_tries
-#no_of_tries = 5
 word = "marcin"
 used_letters = []
 
@@ -69,15 +67,28 @@ def new_game():
 
             if no_of_tries == 0:
                 print("GAME OVER :(")
-                sys.exit(0)
+                game_restart()
         else:
             for index in found_indexes:
                 user_word[index] = letter
         
             if "".join(user_word) == word:
                 print("Bravo, that's the word!")
-                sys.exit(0)
-
+                game_restart()
+            
         show_state_of_game()
+
+def game_restart():
+    while True:
+        choice = input("Do you want to play again? (yes/no): ")
+        if choice.lower() == "no":
+            print("Thank you for the game. Goodbye!")
+            sys.exit(0)
+        elif choice.lower() == "yes":
+            global used_letters
+            global user_word
+            used_letters = []
+            user_word = []
+            new_game()
 
 new_game()
