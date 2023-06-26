@@ -10,13 +10,7 @@
 
 import sys
 
-word = "marcin"
-used_letters = []
-
-user_word =[]
-
 def difficulty_level():
-    global no_of_tries
     while True:
         difficulty = input("Choose your difficulty level: easy/normal/hard.\n")
         if difficulty.lower() == "easy":
@@ -29,7 +23,7 @@ def difficulty_level():
             no_of_tries = int(3)
             break
         else:
-            print("Wrong difficulty level. Choose again")
+            print("Wrong difficulty level. Choose again.")
     print("Number of tries: "+str(no_of_tries))
     return no_of_tries
 
@@ -42,7 +36,7 @@ def find_indexes(word, letter):
 
     return indexes
 
-def show_state_of_game():
+def show_state_of_game(user_word, no_of_tries, used_letters):
     print()
     print(user_word)
     print("Trials left: ", no_of_tries)
@@ -50,12 +44,17 @@ def show_state_of_game():
     print()
 
 def new_game():
-    difficulty_level()
-    global no_of_tries
+    
+    word = "marcin"
+    used_letters = []
+    user_word =[]
+    no_of_tries = difficulty_level()
+    game_finished = False
+
     for _ in word:
         user_word.append("_")
 
-    while True:
+    while not game_finished:
         letter = input("Enter a letter: ")
         used_letters.append(letter)
 
@@ -63,32 +62,24 @@ def new_game():
 
         if len(found_indexes) == 0:
             print("There is no such letter.")
-            no_of_tries -=1
+            no_of_tries -= 1
 
             if no_of_tries == 0:
                 print("GAME OVER :(")
-                game_restart()
+                game_finished = True
         else:
             for index in found_indexes:
                 user_word[index] = letter
         
             if "".join(user_word) == word:
                 print("Bravo, that's the word!")
-                game_restart()
+                game_finished = True
             
-        show_state_of_game()
+        show_state_of_game(user_word, no_of_tries, used_letters)
 
-def game_restart():
-    while True:
-        choice = input("Do you want to play again? (yes/no): ")
-        if choice.lower() == "no":
-            print("Thank you for the game. Goodbye!")
-            sys.exit(0)
-        elif choice.lower() == "yes":
-            global used_letters
-            global user_word
-            used_letters = []
-            user_word = []
-            new_game()
-
-new_game()
+while True:
+    new_game()
+    choice = input("Do you want to play again? (yes/no): ")
+    if choice.lower() != "yes":
+        print("Thank you for the game. Goodbye!")
+        sys.exit(0)
