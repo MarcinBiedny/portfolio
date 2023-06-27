@@ -2,13 +2,13 @@
 - translate the game into English - check
 - validation (letters only)
 - do not allow repeated letters
-- word list to guess
-- drawing a word from the list (no repetitions in subsequent games)
+- word list to guess - check
+- drawing a word from the list (no repetitions in subsequent games) - check
 - select restart/quit game - check
 - selection of the number of chances / game difficulty level - check
 """
 
-import sys
+import sys, random, json
 
 def difficulty_level():
     while True:
@@ -43,9 +43,15 @@ def show_state_of_game(user_word, no_of_tries, used_letters):
     print("Letters used: ", used_letters)
     print()
 
+def random_word():
+    with open('yt/python-5-projektow-w-2h/01-hangman_names.json', 'r') as file:
+        words = json.load(file)
+        word = random.choice(words["names"])
+    return word
+
 def new_game():
     
-    word = "marcin"
+    word = random_word()
     used_letters = []
     user_word =[]
     no_of_tries = difficulty_level()
@@ -77,6 +83,7 @@ def new_game():
             
         show_state_of_game(user_word, no_of_tries, used_letters)
 
+print("Welcome to the Hangman game.\nThe game consists in guessing a random male or female name by giving successive letters. Remember that for each misspelled letter you lose one chance.\nGood luck :)")
 while True:
     new_game()
     choice = input("Do you want to play again? (yes/no): ")
