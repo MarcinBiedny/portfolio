@@ -1,6 +1,6 @@
 """
 - translate the game into English - check
-- validation (letters only)
+- validation (letters only) - check
 - do not allow repeated letters
 - word list to guess - check
 - drawing a word from the list (no repetitions in subsequent games) - check
@@ -49,6 +49,16 @@ def random_word():
         word = random.choice(words["names"])
     return word
 
+def letter_input():
+    while True:
+        letter = input("Enter a letter: ")
+
+        if len(letter) == 1 and letter.isalpha():
+            break
+        else:
+            print("It's not a letter.")
+    return letter
+
 def new_game():
     
     word = random_word()
@@ -61,7 +71,7 @@ def new_game():
         user_word.append("_")
 
     while not game_finished:
-        letter = input("Enter a letter: ")
+        letter = letter_input()
         used_letters.append(letter)
 
         found_indexes = find_indexes(word, letter)
