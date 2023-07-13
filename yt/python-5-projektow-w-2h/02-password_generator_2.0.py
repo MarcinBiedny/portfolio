@@ -1,12 +1,3 @@
-"""
-- translate into English - check
-- remove global variables - check
-- validation (option to improve selection):
--- always number - check
--- number outside the range - check
--- password length - check
-"""
-
 import sys, random, string
 
 password = []

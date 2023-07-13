@@ -1,13 +1,3 @@
-"""
-- translate the game into English - check
-- validation (letters only) - check
-- do not allow repeated letters - check
-- word list to guess - check
-- drawing a word from the list (no repetitions in subsequent games) - check
-- select restart/quit game - check
-- selection of the number of chances / game difficulty level - check
-"""
-
 import sys
 import random
 import json

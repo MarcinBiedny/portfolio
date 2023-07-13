@@ -47,3 +47,4 @@ while True:
             sys.exit(0)
 
     show_state_of_game()
+    
