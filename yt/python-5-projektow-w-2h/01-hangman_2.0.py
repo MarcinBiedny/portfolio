@@ -4,19 +4,14 @@ import json
 
 
 def difficulty_level():
-    while True:
-        difficulty = input("Choose your difficulty level: easy/normal/hard.\n")
-        if difficulty.lower() == "easy":
-            no_of_tries = int(15)
-            break
-        elif difficulty.lower() == "normal":
-            no_of_tries = int(10)
-            break
-        elif difficulty.lower() == "hard":
-            no_of_tries = int(5)
-            break
-        else:
-            print("Wrong difficulty level. Choose again.")
+    DEFAULT_DIFFICULTY = "easy"
+    difficulty_map = {
+        "easy": 15,
+        "medium": 10,
+        "hard": 5
+    }
+    difficulty_level = input("Choose your difficulty level: easy/normal/hard.\n")
+    no_of_tries = difficulty_map.get(difficulty_level, difficulty_map[DEFAULT_DIFFICULTY])
     print("Number of tries: "+str(no_of_tries))
     return no_of_tries
 
