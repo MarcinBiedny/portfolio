@@ -21,7 +21,7 @@ def show_question(question):
         print("Niestety to zła odpowiedź, prawidłowa odpowiedź to " + question["prawidlowa_odpowiedz"] + ".")
 
 
-with open("yt/python-5-projektow-w-2h/03-quiz.json") as json_file:
+with open("yt/python-5-projektow-w-2h/03-quiz_1.0.json") as json_file:
     questions = json.load(json_file)
 
     for i in range(0, len(questions)):

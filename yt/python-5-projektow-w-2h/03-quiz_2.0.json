@@ -1,0 +1,113 @@
+{
+    "general": 
+    [{
+        "question":"What is the capital of Portugal?",
+        "a":"Lisbon",
+        "b":"Warsaw",
+        "c":"Madrid",
+        "d":"London",
+        "correct_answer":"a"
+    }, {
+        "question":"What is the smallest bird in the world?",
+        "a":"Sparrow",
+        "b":"Hummingbird",
+        "c":"Raven",
+        "d":"Seagull",
+        "correct_answer":"b"
+    }, {
+        "question":"What is the chemical symbol for silver?",
+        "a":"Rg",
+        "b":"Si",
+        "c":"Au",
+        "d":"Ag",
+        "correct_answer":"d"
+    }, {
+        "question":"How many breaths does the human body take every day?",
+        "a":"200",
+        "b":"200,000",
+        "c":"20,000",
+        "d":"2,000",
+        "correct_answer":"c"
+    }, {
+        "question":"How many hearts does an octopus have?",
+        "a":"1",
+        "b":"2",
+        "c":"3",
+        "d":"4",
+        "correct_answer":"c"
+    }],
+    "movies":
+    [{
+        "question":"",
+        "a":"",
+        "b":"",
+        "c":"",
+        "d":"",
+        "correct_answer":""
+    }, {
+        "question":"",
+        "a":"",
+        "b":"",
+        "c":"",
+        "d":"",
+        "correct_answer":""
+    }, {
+        "question":"",
+        "a":"",
+        "b":"",
+        "c":"",
+        "d":"",
+        "correct_answer":""
+    }, {
+        "question":"",
+        "a":"",
+        "b":"",
+        "c":"",
+        "d":"",
+        "correct_answer":""
+    }, {
+        "question":"",
+        "a":"",
+        "b":"",
+        "c":"",
+        "d":"",
+        "correct_answer":""
+    }],
+    "science":
+    [{
+        "question":"In what year was the WD40 developed by chemist Norm Larsen?",
+        "a":"1933",
+        "b":"1953",
+        "c":"1973",
+        "d":"1993",
+        "correct_answer":"b"
+    }, {
+        "question":"How many hairs does a person have on his head?",
+        "a":"1,000,000",
+        "b":"1,000",
+        "c":"100,000",
+        "d":"10,000",
+        "correct_answer":"c"
+    }, {
+        "question":"What is the average surface temperature on Venus?",
+        "a":"460 C",
+        "b":"100 C",
+        "c":"999 C",
+        "d":"- 100 C",
+        "correct_answer":"a"
+    }, {
+        "question":"Who Invented Artificial Sodas?",
+        "a":"Albert Einstein",
+        "b":"Isaac Newton",
+        "c":"Maria Skłodowska-Curie",
+        "d":"Joseph Priestley",
+        "correct_answer":"d"
+    }, {
+        "question":"What percentage of the mass of the solar system is in the Sun?",
+        "a":"45%",
+        "b":"65%",
+        "c":"75%",
+        "d":"99%",
+        "correct_answer":"d"
+    }]
+}
