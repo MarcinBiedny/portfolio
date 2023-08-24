@@ -77,7 +77,7 @@ def new_game():
             no_of_tries -= 1
 
             if no_of_tries == 0:
-                print("GAME OVER :(")
+                print("GAME OVER :( The name you are looking for is: "+word.upper()+".")
                 game_finished = True
         else:
             for index in found_indexes:
