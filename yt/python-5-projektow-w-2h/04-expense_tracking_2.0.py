@@ -6,7 +6,7 @@
 - validation of the choice of cost category - check
 - validation of cost value (only number) - check
 - validation of selection in the menu (not letters) - check
-- summary of expenses by type (change layout from amount/type to type/amount)
+- summary of expenses by type - check
 """
 
 expenses = []
@@ -33,6 +33,19 @@ def show_expenses(month):
     for expense_amount, expense_type, expense_month in expenses:
         if expense_month == month:
             print(f'{expense_amount} - {expense_type}')
+
+def show_expenses_by_type(month):
+    expense_totals = {}
+    print()
+    print("Expenses per category in "+months_array.get(month))
+    for expense_amount, expense_type, month in expenses:
+        if (expense_type, month) in expense_totals:
+            expense_totals[(expense_type, month)] += expense_amount
+        else:
+            expense_totals[(expense_type, month)] = expense_amount
+
+    for (expense_type,month), total_amount in expense_totals.items():
+        print(f"Total expenses for {expense_type} - {total_amount}")
 
 def add_expense(month):
     print()
@@ -102,16 +115,17 @@ while True:
         print("Selected month - "+months_array.get(month))
         print("0. Back to month selection")
         print("1. View all expenses")
-        print("2. Add expense")
-        print("3. Add a new expense type")
-        print("4. Statistics")
+        print("2. View expenses by type")
+        print("3. Add expense")
+        print("4. Add a new expense type")
+        print("5. Statistics")
         
         while True:
             choice = input("Choose an option: ")
 
             try:
                 choice = int(choice)
-                if 0 <= choice <= 4:
+                if 0 <= choice <= 5:
                     break
                 else:
                     print("There is no such option in the menu.")
@@ -125,10 +139,13 @@ while True:
             show_expenses(month)
 
         if choice == 2:
-            add_expense(month)
+            show_expenses_by_type(month)
 
         if choice == 3:
-            add_expense_types()
+            add_expense(month)
 
         if choice == 4:
+            add_expense_types()
+
+        if choice == 5:
             show_stats(month)
