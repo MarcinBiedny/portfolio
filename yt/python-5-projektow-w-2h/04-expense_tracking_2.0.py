@@ -1,10 +1,11 @@
 """
 - translate into English - check
 - displaying the month name, not the number - check
-- month selection validation (only numbers from 1 to 12, 0 - exit from the program)
+- month selection validation (only numbers from 1 to 12, 0 - exit from the program) - check
 - selecting a cost category, adding new cost categories - check
 - validation of the choice of cost category - check
-- validation of selection in the menu (letters)
+- validation of cost value (only number) - check
+- validation of selection in the menu (not letters) - check
 - summary of expenses by type (change layout from amount/type to type/amount)
 """
 
@@ -28,14 +29,22 @@ months_array = {
 expense_types = ["house", "car", "bills", "food", "entertainment"]
 
 def show_expenses(month):
+    print()
     for expense_amount, expense_type, expense_month in expenses:
         if expense_month == month:
             print(f'{expense_amount} - {expense_type}')
 
 def add_expense(month):
     print()
-    expense_amount = int(input("Enter the amount [zł]: "))
+    while True:
+        expense_amount = input("Enter the amount [zł]: ")
+        if expense_amount.isdigit():
+            expense_amount = int(expense_amount)
+            break
+        else:
+            print("The cost value must be an integer. Please enter a valid cost value.")
     
+    print()
     while True:
         categories = ", ".join(expense_types)
         expense_type = input("Enter the type of expense ("+categories+"): ")
@@ -71,8 +80,19 @@ def show_stats(month):
     print("Average spend [zł]: ", average_expenses_all)
 
 while True:
-    print()
-    month = int(input("Select a month [1-12]. Selecting [0] ends the program. "))
+
+    while True:
+        
+        month = input("Select a month [1-12]. Selecting [0] ends the program. ")
+
+        try:
+            month = int(month)
+            if 0 <= month <= 12:
+                break
+            else:
+                print("There is no such month.")
+        except ValueError:
+            print("There is no such month.")
 
     if month == 0:
         break
@@ -85,7 +105,18 @@ while True:
         print("2. Add expense")
         print("3. Add a new expense type")
         print("4. Statistics")
-        choice = int(input("Choose an option: "))
+        
+        while True:
+            choice = input("Choose an option: ")
+
+            try:
+                choice = int(choice)
+                if 0 <= choice <= 4:
+                    break
+                else:
+                    print("There is no such option in the menu.")
+            except ValueError:
+                print("There is no such option in the menu.")
 
         if choice == 0:
             break
