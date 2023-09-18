@@ -38,40 +38,40 @@
     }],
     "movies":
     [{
-        "question":"",
-        "a":"",
-        "b":"",
-        "c":"",
-        "d":"",
-        "correct_answer":""
+        "question":"How many Steven Spielberg movies did Tom Hanks star in?",
+        "a":"1",
+        "b":"3",
+        "c":"5",
+        "d":"7",
+        "correct_answer":"c"
     }, {
-        "question":"",
-        "a":"",
-        "b":"",
-        "c":"",
-        "d":"",
-        "correct_answer":""
+        "question":"Who directed Titanic, Avatar and Terminator?",
+        "a":"James Cameron",
+        "b":"Steven Spielberg",
+        "c":"Scott Ridley",
+        "d":"Peter Jackson",
+        "correct_answer":"a"
     }, {
-        "question":"",
-        "a":"",
-        "b":"",
-        "c":"",
-        "d":"",
-        "correct_answer":""
+        "question":"How many films have Kate Winslet and Leonardo DiCaprio appeared in together?",
+        "a":"1",
+        "b":"2",
+        "c":"3",
+        "d":"4",
+        "correct_answer":"b"
     }, {
-        "question":"",
-        "a":"",
-        "b":"",
-        "c":"",
-        "d":"",
-        "correct_answer":""
+        "question":"How many Oscars did Leonardo DiCaprio win?",
+        "a":"4",
+        "b":"3",
+        "c":"2",
+        "d":"1",
+        "correct_answer":"d"
     }, {
-        "question":"",
-        "a":"",
-        "b":"",
-        "c":"",
-        "d":"",
-        "correct_answer":""
+        "question":"What is the name of the second James Bond movie?",
+        "a":"Dr. No",
+        "b":"Goldfinger",
+        "c":"From Russia with Love",
+        "d":"Thunderball",
+        "correct_answer":"c"
     }],
     "science":
     [{
