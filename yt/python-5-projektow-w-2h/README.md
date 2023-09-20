@@ -36,3 +36,53 @@ Main goals:
 - validation for only digits input
 - validation for entering digits from the available range
 - validation for minimum password length
+
+## Quiz
+A game about answering subsequent questions by selecting the correct answer from four available hints. For each correct answer, the player receives one point.
+
+### 03-quiz_1.0.py
+Basic version of the game.
+
+### 03-quiz_2.0.py
+An extended version of the game with three categories of questions to choose from.
+
+Main goals:
+- translate into English
+- remove global variables
+- validation of entered answers
+- category selection
+- random order of questions
+
+## Expense tracking
+A program used to record expenses incurred in subsequent months, divided into categories, and to prepare statistics on these expenses.
+
+### 04-expense_tracking_1.0.py
+Basic version of the program.
+
+### 04-expense_tracking_2.0.py
+Extended version of the program.
+
+Main goals:
+- translate into English
+- displaying the month name, not the number
+- month selection validation (only numbers from 1 to 12, 0 - exit from the program)
+- selecting a cost category, adding new cost categories
+- validation of the choice of cost category
+- validation of cost value (only number)
+- validation of selection in the menu (not letters)
+- summary of expenses by type
+- message when there are no entered expenses
+
+### ToDo - SQLite
+A program for creating a database with a list of tasks to be performed, adding new tasks and deleting already completed ones.
+
+### 05-todo-sqlite_1.0.py
+Basic version of the program.
+
+### 05-todo-sqlite_2.0.py
+Extended version of the program.
+
+Main goals:
+- translate into English
+- validation (menu, delete task)
+- message for empty database

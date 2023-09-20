@@ -1,11 +1,3 @@
-"""
-- translate into English - check
-- remove global variables - check
-- validation of entered answers - check
-- category selection - check
-- random order of questions - check
-"""
-
 import json, random
         
 def show_question(question, points):

@@ -1,9 +1,3 @@
-"""
-- translate into English
-- validation (menu, delete task)
-- message for empty database
-"""
-
 import sqlite3
 
 connection = sqlite3.connect("yt/python-5-projektow-w-2h/05-todo_2.0.db")

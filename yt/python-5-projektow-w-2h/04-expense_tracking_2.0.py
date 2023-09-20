@@ -1,15 +1,3 @@
-"""
-- translate into English - check
-- displaying the month name, not the number - check
-- month selection validation (only numbers from 1 to 12, 0 - exit from the program) - check
-- selecting a cost category, adding new cost categories - check
-- validation of the choice of cost category - check
-- validation of cost value (only number) - check
-- validation of selection in the menu (not letters) - check
-- summary of expenses by type - check
-- message when there are no entered expenses - check
-"""
-
 expenses = []
 
 months_array = {
