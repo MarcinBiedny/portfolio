@@ -9,4 +9,3 @@ if __name__ == "__main__":
     app_debug = bool(os.environ.get('FLASK_DEBUG', True))
 
     app.run(host=app_host, port=app_port, debug=app_debug)
-    
