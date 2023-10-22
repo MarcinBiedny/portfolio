@@ -8,5 +8,5 @@ if __name__ == "__main__":
     app_port = int(os.environ.get('FLASK_RUN_PORT', 5000))
     app_debug = bool(os.environ.get('FLASK_DEBUG', True))
 
-    app.run(debug=True)
+    app.run(host=app_host, port=app_port, debug=app_debug)
     
