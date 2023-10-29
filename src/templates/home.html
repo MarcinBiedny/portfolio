@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-</head>
-<body>
-    <h1>Welcome, {{name}}!</h1>
-    <br>
-    <strong>This is yours Flask MVC App with Blueprints</strong>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Home{% endblock title %}
+{% block heading %}<h1>Welcome!</h1>{% endblock heading %}
+{% block content %}
+<p class="important">
+    My name is {{name}}!<br>
+    This is my awesome page!
+</p>
+{% endblock content %}
