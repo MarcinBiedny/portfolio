@@ -5,4 +5,22 @@
 <p class="important">
     Below finished project that show off my backend super skills!
 </p>
+<div class="container m-4">
+    <div class="row">
+        {% for project in projects %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='images/projects/' + project.name + '/thumbnail.jpg') }}" class="card-img-top" alt="Simple Calculator">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description }}</p>
+                <a href="{{ url_for('projects.route', project_name=project.name) }}" class="btn btn-primary">Go to project</a>
+            </div>
+        </div>
+        {% if loop.index % 4 == 0 %}
+    </div>
+    <div class="row">
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
 {% endblock content %}
