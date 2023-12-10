@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 {% block title %}Calculator{% endblock title %}
+{% block css %}
+<link href="{{ url_for('static', filename='css/projects/calculator/style.css') }}" rel="stylesheet">
+{% endblock css %}
 {% block heading %}Simple Calculator{% endblock heading %}
 {% block content %}
-<style>
-    .calculator-btn{
-        min-width: 60px;
-    }
-</style>
 <div class="container mt-5">
     <h2 class="text-center m-2 p-2">Simple Calculator</h2>
     <div class="row justify-content-center g-0">
@@ -16,13 +14,16 @@
             </div>
             <div class="row g-2 mb-2">
                 <div class="col-3">
-                    <button type="button" class="btn btn-secondary me-2 calculator-btn" onclick="appendDigit('7')">7</button>
+                    <button type="button" class="btn btn-secondary me-2 calculator-btn"
+                        onclick="appendDigit('7')">7</button>
                 </div>
                 <div class="col-3">
-                    <button type="button" class="btn btn-secondary me-2 calculator-btn" onclick="appendDigit('8')">8</button>
+                    <button type="button" class="btn btn-secondary me-2 calculator-btn"
+                        onclick="appendDigit('8')">8</button>
                 </div>
                 <div class="col-3">
-                    <button type="button" class="btn btn-secondary me-2 calculator-btn" onclick="appendDigit('9')">9</button>
+                    <button type="button" class="btn btn-secondary me-2 calculator-btn"
+                        onclick="appendDigit('9')">9</button>
                 </div>
                 <div class="col-3">
                     <button type="button" class="btn btn-info me-2 calculator-btn" onclick="appendDigit('-')">-</button>
@@ -30,27 +31,33 @@
             </div>
             <div class="row g-2 mb-2">
                 <div class="col-3">
-                    <button type="button" class="btn btn-secondary me-2 calculator-btn" onclick="appendDigit('4')">4</button>
+                    <button type="button" class="btn btn-secondary me-2 calculator-btn"
+                        onclick="appendDigit('4')">4</button>
                 </div>
                 <div class="col-3">
-                    <button type="button" class="btn btn-secondary me-2 calculator-btn" onclick="appendDigit('5')">5</button>
+                    <button type="button" class="btn btn-secondary me-2 calculator-btn"
+                        onclick="appendDigit('5')">5</button>
                 </div>
                 <div class="col-3">
-                    <button type="button" class="btn btn-secondary me-2 calculator-btn" onclick="appendDigit('6')">6</button>
+                    <button type="button" class="btn btn-secondary me-2 calculator-btn"
+                        onclick="appendDigit('6')">6</button>
                 </div>
                 <div class="col-3">
-                    <button type="button" class="btn btn-info me-2 calculator-btn"onclick="appendDigit('+')">+</button>
+                    <button type="button" class="btn btn-info me-2 calculator-btn" onclick="appendDigit('+')">+</button>
                 </div>
             </div>
             <div class="row g-2 mb-2">
                 <div class="col-3">
-                    <button type="button" class="btn btn-secondary me-2 calculator-btn" onclick="appendDigit('1')">1</button>
+                    <button type="button" class="btn btn-secondary me-2 calculator-btn"
+                        onclick="appendDigit('1')">1</button>
                 </div>
                 <div class="col-3">
-                    <button type="button" class="btn btn-secondary me-2 calculator-btn" onclick="appendDigit('2')">2</button>
+                    <button type="button" class="btn btn-secondary me-2 calculator-btn"
+                        onclick="appendDigit('2')">2</button>
                 </div>
                 <div class="col-3">
-                    <button type="button" class="btn btn-secondary me-2 calculator-btn" onclick="appendDigit('3')">3</button>
+                    <button type="button" class="btn btn-secondary me-2 calculator-btn"
+                        onclick="appendDigit('3')">3</button>
                 </div>
                 <div class="col-3">
                     <button type="button" class="btn btn-info me-2 calculator-btn" onclick="appendDigit('*')">*</button>
@@ -58,13 +65,16 @@
             </div>
             <div class="row g-2 mb-2">
                 <div class="col-3">
-                    <button type="button" class="btn btn-secondary me-2 calculator-btn" onclick="appendDigit('0')">0</button>
+                    <button type="button" class="btn btn-secondary me-2 calculator-btn"
+                        onclick="appendDigit('0')">0</button>
                 </div>
                 <div class="col-3">
-                    <button type="button" class="btn btn-danger me-2 calculator-btn" onclick="clearDisplay('')">C</button>
+                    <button type="button" class="btn btn-danger me-2 calculator-btn"
+                        onclick="clearDisplay('')">C</button>
                 </div>
                 <div class="col-3">
-                    <button type="button" class="btn btn-success me-2 calculator-btn" onclick="calculateResult()">=</button>
+                    <button type="button" class="btn btn-success me-2 calculator-btn"
+                        onclick="calculateResult()">=</button>
                 </div>
                 <div class="col-3">
                     <button type="button" class="btn btn-info me-2 calculator-btn" onclick="appendDigit('/')">/</button>
@@ -74,22 +84,7 @@
     </div>
 </div>
 
-<script>
-function appendDigit(digit) {
-    document.getElementById('calculatorDisplay').value += digit;
-}
-function appendOperator(operator) {
-    document.getElementById('calculatorDisplay').value += operator;
-}
-function clearDisplay() {
-    document.getElementById('calculatorDisplay').value = '';
-}
-function calculateResult() {
-    try {
-        document.getElementById('calculatorDisplay').value = eval(document.getElementById('calculatorDisplay').value)
-    } catch (e) {
-        document.getElementById('calculatorDisplay').value = 'Error'
-    }
-}
-</script>
+{% block script %}
+<script src="{{ url_for('static', filename='js/projects/calculator/scripts.js') }}"></script>
+{% endblock script %}
 {% endblock content %}
