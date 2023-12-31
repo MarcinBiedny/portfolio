@@ -2,6 +2,7 @@ import sqlite3
 
 connection = sqlite3.connect("yt/python-5-projektow-w-2h/05-todo_2.0.db")
 
+
 def is_integer(value):
     try:
         int(value)
@@ -9,10 +10,12 @@ def is_integer(value):
         return False
     return True
 
+
 def is_user_choice_within_proper_range(user_choice):
     if 1 <= int(user_choice) <= 4:
         return True
     return False
+
 
 def is_valid_user_choice_within_proper_range(user_choice):
     if not is_integer(user_choice):
@@ -23,12 +26,14 @@ def is_valid_user_choice_within_proper_range(user_choice):
         return False
     return True
 
+
 def create_table(connection):
     try:
         cur = connection.cursor()
         cur.execute("""CREATE TABLE task (task text)""")
     except:
         pass
+
 
 def show_tasks(connection):
     cur = connection.cursor()
@@ -42,6 +47,7 @@ def show_tasks(connection):
         for row in result:
             print(str(row[0]) + " - " + row[1])
 
+
 def add_task(connection):
     print("Add a task. Select '0' to return to the Menu.")
     task = input("Enter the content of the task: \n")
@@ -53,6 +59,7 @@ def add_task(connection):
         connection.commit()
         print("Task added!")
 
+
 def delete_task(connection):
     while True:
         task_index = input("Enter the index of the task to be deleted: \n")
@@ -62,15 +69,18 @@ def delete_task(connection):
         else:
             task_index = int(task_index)
             break
-    
+
     cur = connection.cursor()
-    rows_deleted = cur.execute("""DELETE FROM task WHERE rowid=?""", (task_index,)).rowcount
+    rows_deleted = cur.execute(
+        """DELETE FROM task WHERE rowid=?""", (task_index,)
+    ).rowcount
     connection.commit()
 
     if rows_deleted == 0:
         print("Such a task does not exist!")
     else:
         print("Task deleted!")
+
 
 create_table(connection)
 

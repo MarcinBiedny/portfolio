@@ -3,6 +3,7 @@ import sys, random, string
 password = []
 characters_left = -1
 
+
 def update_characters_left(number_of_characters):
     global characters_left
 
@@ -12,6 +13,7 @@ def update_characters_left(number_of_characters):
     else:
         characters_left -= number_of_characters
         print("Pozostało znaków: ", characters_left)
+
 
 password_lenght = int(input("Jak długie ma być hasło? "))
 
@@ -34,7 +36,9 @@ digits = int(input("Ile cyfr ma mieć hasło? "))
 update_characters_left(digits)
 
 if characters_left > 0:
-    print("Nie wszystkie znaki zostały wykorzystane. Hasło zostanie uzupełnione małymi literami.")
+    print(
+        "Nie wszystkie znaki zostały wykorzystane. Hasło zostanie uzupełnione małymi literami."
+    )
     lowercase_letters += characters_left
 
 print()
@@ -47,13 +51,13 @@ print("Cyfry: ", digits)
 for _ in range(password_lenght):
     if lowercase_letters > 0:
         password.append(random.choice(string.ascii_lowercase))
-        lowercase_letters -=1
+        lowercase_letters -= 1
     if uppercase_letters > 0:
         password.append(random.choice(string.ascii_uppercase))
-        uppercase_letters -=1
+        uppercase_letters -= 1
     if special_characters > 0:
         password.append(random.choice(string.punctuation))
-        special_characters -=1
+        special_characters -= 1
     if digits > 0:
         password.append(random.choice(string.digits))
         digits -= 1

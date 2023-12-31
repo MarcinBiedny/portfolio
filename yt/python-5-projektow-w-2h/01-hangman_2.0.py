@@ -5,14 +5,12 @@ import json
 
 def difficulty_level():
     DEFAULT_DIFFICULTY = "easy"
-    difficulty_map = {
-        "easy": 15,
-        "medium": 10,
-        "hard": 5
-    }
+    difficulty_map = {"easy": 15, "medium": 10, "hard": 5}
     difficulty_level = input("Choose your difficulty level: easy/normal/hard.\n")
-    no_of_tries = difficulty_map.get(difficulty_level, difficulty_map[DEFAULT_DIFFICULTY])
-    print("Number of tries: "+str(no_of_tries))
+    no_of_tries = difficulty_map.get(
+        difficulty_level, difficulty_map[DEFAULT_DIFFICULTY]
+    )
+    print("Number of tries: " + str(no_of_tries))
     return no_of_tries
 
 
@@ -35,7 +33,7 @@ def show_state_of_game(user_word, no_of_tries, used_letters):
 
 
 def random_word():
-    with open('yt/python-5-projektow-w-2h/01-hangman_names.json', 'r') as file:
+    with open("yt/python-5-projektow-w-2h/01-hangman_names.json", "r") as file:
         words = json.load(file)
         word = random.choice(words["names"])
     return word.lower()
@@ -56,7 +54,6 @@ def letter_input(used_letters):
 
 
 def new_game():
-
     word = random_word()
     used_letters = []
     user_word = []
@@ -77,7 +74,11 @@ def new_game():
             no_of_tries -= 1
 
             if no_of_tries == 0:
-                print("GAME OVER :( The name you are looking for is: "+word.upper()+".")
+                print(
+                    "GAME OVER :( The name you are looking for is: "
+                    + word.upper()
+                    + "."
+                )
                 game_finished = True
         else:
             for index in found_indexes:
@@ -90,7 +91,9 @@ def new_game():
         show_state_of_game(user_word, no_of_tries, used_letters)
 
 
-print("Welcome to the Hangman game.\nThe game consists in guessing a random male or female name by giving successive letters. Remember that for each misspelled letter you lose one chance.\nGood luck :)")
+print(
+    "Welcome to the Hangman game.\nThe game consists in guessing a random male or female name by giving successive letters. Remember that for each misspelled letter you lose one chance.\nGood luck :)"
+)
 while True:
     new_game()
     choice = input("Do you want to play again? (yes/no): ")
