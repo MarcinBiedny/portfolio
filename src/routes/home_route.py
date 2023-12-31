@@ -1,8 +1,10 @@
 from flask import Blueprint
 from src.controllers import home_controller
 
-bp = Blueprint('home', __name__)
+bp = Blueprint("home", __name__)
 
-@bp.route('/home/', methods=['GET'])
+
+@bp.route("/", methods=["GET"])
+@bp.route("/home/", methods=["GET"])
 def route():
     return home_controller.index()
