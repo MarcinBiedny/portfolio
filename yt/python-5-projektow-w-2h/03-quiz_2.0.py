@@ -1,5 +1,6 @@
 import json, random
-        
+
+
 def show_question(question, points):
     print()
     print(question["question"])
@@ -19,18 +20,24 @@ def show_question(question, points):
     if answer == question["correct_answer"]:
         points += 1
         print()
-        print("Brawo! This is the correct answer. You already have" , points, "points.")
+        print("Brawo! This is the correct answer. You already have", points, "points.")
     else:
         print()
-        print("Unfortunately this is the wrong answer, the correct answer is " + question["correct_answer"].upper() + ".")
+        print(
+            "Unfortunately this is the wrong answer, the correct answer is "
+            + question["correct_answer"].upper()
+            + "."
+        )
 
     return points
 
-def game():
 
+def game():
     print()
     print("Welcome to the Quiz.")
-    print("The game involves answering questions by selecting the correct answer from among the four available.")
+    print(
+        "The game involves answering questions by selecting the correct answer from among the four available."
+    )
     print("Good luck :)")
     print()
 
@@ -41,7 +48,11 @@ def game():
 
     while True:
         available_category = questions.keys()
-        category = input("What category would you like to receive questions from: " + ", ".join(available_category) + "?\n").lower()
+        category = input(
+            "What category would you like to receive questions from: "
+            + ", ".join(available_category)
+            + "?\n"
+        ).lower()
         if category in (available_category):
             break
         else:
@@ -55,5 +66,6 @@ def game():
 
     print()
     print("It's game over. Number of points scored - " + str(points) + ".")
+
 
 game()

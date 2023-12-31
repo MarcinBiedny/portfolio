@@ -2,6 +2,7 @@ import json
 
 points = 0
 
+
 def show_question(question):
     global points
     print()
@@ -16,9 +17,13 @@ def show_question(question):
 
     if answer == question["prawidlowa_odpowiedz"]:
         points += 1
-        print("To prawidłowa odpowiedz, brawo! Masz już" , points, "punktów.")
+        print("To prawidłowa odpowiedz, brawo! Masz już", points, "punktów.")
     else:
-        print("Niestety to zła odpowiedź, prawidłowa odpowiedź to " + question["prawidlowa_odpowiedz"] + ".")
+        print(
+            "Niestety to zła odpowiedź, prawidłowa odpowiedź to "
+            + question["prawidlowa_odpowiedz"]
+            + "."
+        )
 
 
 with open("yt/python-5-projektow-w-2h/03-quiz_1.0.json") as json_file:

@@ -2,12 +2,14 @@ import sqlite3
 
 connection = sqlite3.connect("yt/python-5-projektow-w-2h/05-todo_1.0.db")
 
+
 def create_table(connection):
     try:
         cur = connection.cursor()
         cur.execute("""CREATE TABLE task (task text)""")
     except:
         pass
+
 
 def show_tasks(connection):
     cur = connection.cursor()
@@ -16,6 +18,7 @@ def show_tasks(connection):
 
     for row in result:
         print(str(row[0]) + " - " + row[1])
+
 
 def add_task(connection):
     print("dodajemy zadanie")
@@ -28,17 +31,21 @@ def add_task(connection):
         connection.commit()
         print("Dodano zadanie!")
 
+
 def delete_task(connection):
     task_index = int(input("Podaj indeks zadania do usunięcia: "))
-    
+
     cur = connection.cursor()
-    rows_deleted = cur.execute("""DELETE FROM task WHERE rowid=?""", (task_index,)).rowcount
+    rows_deleted = cur.execute(
+        """DELETE FROM task WHERE rowid=?""", (task_index,)
+    ).rowcount
     connection.commit()
 
     if rows_deleted == 0:
         print("Takie zadanie nie istnieje!")
     else:
         print("Usunięto zadanie!")
+
 
 create_table(connection)
 
