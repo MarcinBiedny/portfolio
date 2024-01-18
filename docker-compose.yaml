@@ -14,10 +14,6 @@ services:
       - "5000:5000"
     depends_on:
       - db
-    environment:
-      - FLASK_RUN_HOST=${FLASK_RUN_HOST}
-      - FLASK_RUN_PORT=${FLASK_RUN_PORT}
-      - FLASK_DEBUG=${FLASK_DEBUG}
   db:
     image: mysql:8.0
     environment:

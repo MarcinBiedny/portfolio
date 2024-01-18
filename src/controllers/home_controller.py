@@ -1,6 +1,9 @@
 from flask import render_template
-from src.models import user_model
+from src.models.user_model import User
 
 
 def index():
-    return render_template("home.html", name=user_model.getName())
+    user = User().query.filter_by(id=1).first()
+    name = "Anonymous" if user == None else user.getName()
+
+    return render_template("home.html", name=name)
