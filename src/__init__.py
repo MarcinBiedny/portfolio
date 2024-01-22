@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from src.extensions.flask_sqlalchemy import (
     init_app as db_init_app,
     SQLALCHEMY_DATABASE_URI,
@@ -16,6 +16,10 @@ def create_app():
     app.register_blueprint(home_route.bp)
     app.register_blueprint(projects_route.bp)
     app.register_blueprint(contact_route.bp)
+
+    @app.errorhandler(404)
+    def page_not_found(e):
+        return render_template('404.html'), 404
 
     return app
 
