@@ -6,9 +6,10 @@ from src.extensions.flask_sqlalchemy import (
 from src.extensions.flask_migrate import init_app as migrate_init_app
 from src.routes import home_route, projects_route, contact_route
 
+app = Flask(__name__)
+
 
 def create_app():
-    app = Flask(__name__)
     app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
 
     initialize_extensions(app)
@@ -17,9 +18,7 @@ def create_app():
     app.register_blueprint(projects_route.bp)
     app.register_blueprint(contact_route.bp)
 
-    @app.errorhandler(404)
-    def page_not_found(e):
-        return render_template('404.html'), 404
+    app.errorhandler(404)(page_not_found)
 
     return app
 
@@ -27,3 +26,7 @@ def create_app():
 def initialize_extensions(app):
     db_init_app(app)
     migrate_init_app(app)
+
+
+def page_not_found(e):
+    return render_template("404.html"), 404

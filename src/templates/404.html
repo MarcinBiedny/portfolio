@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}404{% endblock title %}
+{% block title %}404 - Not Found{% endblock title %}
 {% block heading %}<h1>404</h1>{% endblock heading %}
 {% block content %}
 <p class="important">
@@ -7,7 +7,7 @@
     The selected subpage does not exist.<br>
     Maybe someday, but not today...<br>
     SORRY!!!<br>
-    <img src="{{ url_for('static', filename='images/cry_cat.png') }}" height="300" width="300">
+    <img src="{{ url_for('static', filename='images/error_handlers/404.png') }}" height="300" width="300">
     </b></h3></center>
 </p>
 {% endblock content %}
