@@ -18,8 +18,6 @@ def create_app():
     app.register_blueprint(projects_route.bp)
     app.register_blueprint(contact_route.bp)
 
-    app.errorhandler(404)(page_not_found)
-
     return app
 
 
@@ -28,5 +26,6 @@ def initialize_extensions(app):
     migrate_init_app(app)
 
 
+@app.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html"), 404
