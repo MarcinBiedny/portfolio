@@ -16,4 +16,6 @@ db = SQLAlchemy()
 
 
 def init_app(app):
+    app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
+
     db.init_app(app)

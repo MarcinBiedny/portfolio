@@ -1,7 +1,7 @@
 from flask_migrate import Migrate
 from src.extensions.flask_sqlalchemy import db
 
-migrate = Migrate(command="migrate")
+migrate = Migrate()
 
 
 def init_app(app):
