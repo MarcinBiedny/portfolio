@@ -6,29 +6,38 @@ My portfolio
     portfolio/
     ├── .docker
     │   └── app
-    └── src
-        ├── controllers
-        ├── models
-        ├── routes
-        └── templates
+    ├── migrations
+    ├── src
+    │    ├── controllers
+    │    ├── error_handlers
+    │    ├── extensions
+    │    ├── models
+    │    ├── routes
+    │    ├── static
+    │    └── templates
     ├── LICENSE
     ├── README.md
     ├── app.py
     ├── docker-compose.yaml
     ├── requirements.txt
-    ├── sample.env
+    └── sample.env
 
 - `.docker/`
   - `app`: Contains Docker configurations specific to your Flask app, like Dockerfile,
+- `migrations`: Extension to support SQLAlchemy database migrations for Flask applications using Alembic,
+  - `versions`: Individual migration files,
 - `src`: Holds the source code of your application,
-- `controllers`: Business logic, connects models and routes,
-- `models`: Data models, usually represents database tables,
-- `routes`: URL routing using Flask Blueprints,
-- `templates`: HTML templates, Jinja2 templating engine,
-- `LICENSE`: License file, dictates terms under which code can be used,
-- `README.md`: Documentation, explains how to set up and use your project,
+  - `controllers`: Business logic, connects models and routes,
+  - `error_handlers`: Handler for custom error pages,
+  - `extensions`: Scripts for installed flask_migrate and flask_sqlalchemy extensions,
+  - `models`: Data models, usually represents database tables,
+  - `routes`: URL routing using Flask Blueprints,
+  - `static`: css, images and js static files for websites,
+  - `templates`: HTML templates, Jinja2 templating engine,
 - `app.py`: Main entry point, initializes and runs Flask application,
 - `docker-compose.yaml`: Docker Compose config, describes services, networks, and volumes,
+- `LICENSE`: License file, dictates terms under which code can be used,
+- `README.md`: Documentation, explains how to set up and use your project,
 - `requirements.txt`: All the dependencies and their specific versions required for the application,
 - `sample.env`: Sample environment variables, template for .env file.
 
