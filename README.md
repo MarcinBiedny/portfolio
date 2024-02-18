@@ -25,7 +25,7 @@ My portfolio
   - `app`: Contains Docker configurations specific to `app` service, like Dockerfile, entry-point scripts etc.,
 - `migrations`: Flask-Migrate work folder for storing migrations versions and configurations,
   - `versions`: Individual migration files,
-- `src`: Holds the source code of your application,
+- `src`: Holds the source code of the application,
   - `controllers`: Business logic, connects models and routes,
   - `error_handlers`: Handler for custom error pages,
   - `extensions`: Scripts for initializations of Flask extensions,
@@ -35,7 +35,7 @@ My portfolio
   - `templates`: HTML templates, Jinja2 templating engine,
 - `app.py`: Main entry point, initializes and runs Flask application,
 - `docker-compose.yaml`: Docker Compose config, describes services, networks, and volumes,
-- `README.md`: Documentation, explains how to set up and use your project,
+- `README.md`: Documentation, explains how to set up and use the project,
 - `requirements.txt`: All the dependencies and their specific versions required for the application,
 - `sample.env`: Sample environment variables, template for .env file.
 
@@ -67,7 +67,7 @@ Press CTRL+C to quit
 
 ### Enter application
 Open the [localhost:5000](http://localhost:5000) or [127.0.0.1:5000](http://127.0.0.1:5000) link.
-You should be seeing your application home page.
+You should be seeing the application home page.
 
 ### Stop Docker Services
 To stop all containers, run:
