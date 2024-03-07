@@ -10,26 +10,49 @@ class PasswordGenerator:
 
     def generate(
         self,
-        include_upercase: bool = True,
+        include_uppercase: bool = True,
         include_numbers: bool = True,
         include_special_chars: bool = True,
         password_length: int = 8,
     ) -> str:
-        if not (
-            self.MINIMUM_PASSWORD_LEN <= password_length <= self.MAXIMUM_PASSWORD_LEN
-        ):
-            raise ValueError(
-                f"Password lenght must be between {self.MINIMUM_PASSWORD_LEN} and {self.MAXIMUM_PASSWORD_LEN}"
+        while True:
+            if not (
+                self.MINIMUM_PASSWORD_LEN
+                <= password_length
+                <= self.MAXIMUM_PASSWORD_LEN
+            ):
+                raise ValueError(
+                    f"Password lenght must be between {self.MINIMUM_PASSWORD_LEN} and {self.MAXIMUM_PASSWORD_LEN}"
+                )
+
+            character_set = string.ascii_lowercase
+
+            if include_uppercase:
+                character_set += string.ascii_uppercase
+            if include_numbers:
+                character_set += string.digits
+            if include_special_chars:
+                character_set += string.punctuation
+
+            generated_password = "".join(
+                secrets.choice(character_set) for _ in range(password_length)
             )
 
-        character_set = (
-            string.ascii_lowercase
-            + (string.ascii_uppercase if include_upercase else "")
-            + (string.digits if include_numbers else "")
-            + (string.punctuation if include_special_chars else "")
-        )
-
-        return "".join(secrets.choice(character_set) for _ in range(password_length))
+            if (
+                (
+                    not include_uppercase
+                    or any(char.isupper() for char in generated_password)
+                )
+                and (
+                    not include_numbers
+                    or any(char.isdigit() for char in generated_password)
+                )
+                and (
+                    not include_special_chars
+                    or any(char in string.punctuation for char in generated_password)
+                )
+            ):
+                return generated_password
 
 
 password_generator = PasswordGenerator()
