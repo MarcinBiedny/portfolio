@@ -1,4 +1,5 @@
 import secrets, string
+from random import shuffle
 
 
 class PasswordGenerator:
@@ -15,48 +16,32 @@ class PasswordGenerator:
         include_special_chars: bool = True,
         password_length: int = 8,
     ) -> str:
-        while True:
-            if not (
-                self.MINIMUM_PASSWORD_LEN
-                <= password_length
-                <= self.MAXIMUM_PASSWORD_LEN
-            ):
-                raise ValueError(
-                    f"Password lenght must be between {self.MINIMUM_PASSWORD_LEN} and {self.MAXIMUM_PASSWORD_LEN}"
-                )
-
-            character_set = string.ascii_lowercase
-
-            if include_uppercase:
-                character_set += string.ascii_uppercase
-            if include_numbers:
-                character_set += string.digits
-            if include_special_chars:
-                character_set += string.punctuation
-
-            generated_password = "".join(
-                secrets.choice(character_set) for _ in range(password_length)
+        if not (
+            self.MINIMUM_PASSWORD_LEN <= password_length <= self.MAXIMUM_PASSWORD_LEN
+        ):
+            raise ValueError(
+                f"Password lenght must be between {self.MINIMUM_PASSWORD_LEN} and {self.MAXIMUM_PASSWORD_LEN}"
             )
 
-            if (
-                (
-                    not include_uppercase
-                    or any(char.isupper() for char in generated_password)
-                )
-                and (
-                    not include_numbers
-                    or any(char.isdigit() for char in generated_password)
-                )
-                and (
-                    not include_special_chars
-                    or any(char in string.punctuation for char in generated_password)
-                )
-            ):
-                return generated_password
+        password_prefix = secrets.choice(string.ascii_lowercase)
+        character_set = string.ascii_lowercase
+        if include_uppercase == True:
+            password_prefix += secrets.choice(string.ascii_uppercase)
+            character_set += string.ascii_uppercase
+        if include_numbers == True:
+            password_prefix += secrets.choice(string.digits)
+            character_set += string.digits
+        if include_special_chars == True:
+            password_prefix += secrets.choice(string.punctuation)
+            character_set += string.punctuation
 
+        password_suffix = "".join(
+            secrets.choice(character_set)
+            for _ in range(password_length - len(password_prefix))
+        )
 
-password_generator = PasswordGenerator()
-try:
-    print(password_generator.generate())
-except ValueError as e:
-    print(f"Error: {e}")
+        password = password_prefix + password_suffix
+        password_as_list = list(password)
+        shuffle(password_as_list)
+
+        return "".join(password_as_list)
