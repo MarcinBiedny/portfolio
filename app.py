@@ -1,6 +1,3 @@
-from dotenv import load_dotenv
-
-load_dotenv()
 from os import getenv
 from src import create_app
 
