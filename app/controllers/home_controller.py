@@ -1,5 +1,5 @@
 from flask import render_template
-from src.models.user_model import User
+from app.models.user_model import User
 
 
 def index():

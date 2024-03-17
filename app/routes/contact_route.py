@@ -1,5 +1,5 @@
 from flask import Blueprint
-from src.controllers import contact_controller
+from app.controllers import contact_controller
 
 bp = Blueprint("contact", __name__)
 

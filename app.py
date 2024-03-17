@@ -1,5 +1,5 @@
 from os import getenv
-from src import create_app
+from app import create_app
 
 
 app = create_app(getenv("FLASK_ENV", "production"))

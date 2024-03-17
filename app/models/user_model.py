@@ -1,6 +1,6 @@
 from sqlalchemy import Integer, String
 from sqlalchemy.orm import Mapped, mapped_column
-from src.extensions.flask_sqlalchemy import db
+from app.extensions.flask_sqlalchemy import db
 
 
 class User(db.Model):
