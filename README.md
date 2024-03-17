@@ -8,6 +8,7 @@ My portfolio
     │   └── app
     ├── migrations
     ├── app
+    │    ├── config
     │    ├── controllers
     │    ├── error_handlers
     │    ├── extensions
@@ -26,6 +27,7 @@ My portfolio
 - `migrations`: Flask-Migrate work folder for storing migrations versions and configurations,
   - `versions`: Individual migration files,
 - `app`: Holds the source code of the application,
+  - `config`: Place for config classes to be used in `app.config.from_object` based on provided `.env` values,
   - `controllers`: Business logic, connects models and routes,
   - `error_handlers`: Handler for custom error pages,
   - `extensions`: Scripts for initializations of Flask extensions,
