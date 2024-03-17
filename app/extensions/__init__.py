@@ -1,7 +1,7 @@
 # Script handling extensions initialization with 'app'
 from flask import Flask
-from src.extensions.flask_sqlalchemy import db
-from src.extensions.flask_migrate import migrate
+from app.extensions.flask_sqlalchemy import db
+from app.extensions.flask_migrate import migrate
 
 
 def initialize_extensions(current_app: Flask):

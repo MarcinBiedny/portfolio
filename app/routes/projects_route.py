@@ -1,5 +1,5 @@
 from flask import Blueprint
-from src.controllers import projects_controller
+from app.controllers import projects_controller
 
 bp = Blueprint("projects", __name__)
 

@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for
 from jinja2 import TemplateNotFound
-from src.models.project_model import Project
+from app.models.project_model import Project
 
 MAIN_PROJECTS_TEMPLATE = "projects.html"
 

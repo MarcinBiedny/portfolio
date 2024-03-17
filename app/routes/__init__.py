@@ -1,6 +1,6 @@
 # Script handling Bluepronts registration with 'app'
 from flask import Flask
-from src.routes import (
+from app.routes import (
     home_route,
     projects_route,
     contact_route,
