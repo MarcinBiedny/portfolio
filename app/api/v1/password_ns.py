@@ -39,7 +39,7 @@ parser.add_argument(
     default=24,
     type=int,
     help="Password length is required to be between 8 to 24 characters.",
-    choice=set(v for v in range(8, 12)),
+    choices=set(v for v in range(8, 25)),
 )
 
 
