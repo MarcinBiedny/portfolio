@@ -13,3 +13,7 @@ class Config(object):
         f"{getenv('SQLALCHEMY_DATABASE_PORT')}/"
         f"{getenv('MYSQL_DATABASE')}"
     )
+
+    # flask_json
+    # https://flask-json.readthedocs.io/en/latest/
+    JSON_ADD_STATUS = False
