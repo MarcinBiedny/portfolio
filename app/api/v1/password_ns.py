@@ -13,33 +13,37 @@ from app.services.password_generator import PasswordGenerator
 ns = Namespace(name="password", description="Password namespace")
 parser = reqparse.RequestParser()
 parser.add_argument(
-    name="include_uppercase",
+    name="includeUppercase",
+    dest="include_uppercase",
     required=False,
     default=True,
     type=inputs.boolean,
 )
 
 parser.add_argument(
-    name="include_numbers",
+    name="includeNumbers",
+    dest="include_numbers",
     required=False,
     default=True,
     type=inputs.boolean,
 )
 
 parser.add_argument(
-    name="include_special_chars",
+    name="includeSpecialChars",
+    dest="include_special_chars",
     required=False,
     default=True,
     type=inputs.boolean,
 )
 
 parser.add_argument(
-    name="password_length",
+    name="passwordLength",
+    dest="password_length",
     required=False,
     default=24,
     type=int,
     help="Password length is required to be between 8 to 24 characters.",
-    choices=set(v for v in range(8, 25)),
+    choices=[v for v in range(8, 25)],
 )
 
 

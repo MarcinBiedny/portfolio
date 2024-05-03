@@ -16,4 +16,5 @@ class Config(object):
 
     # flask_json
     # https://flask-json.readthedocs.io/en/latest/
-    JSON_ADD_STATUS = False
+    JSON_ADD_STATUS = True
+    JSON_STATUS_FIELD_NAME = "status"
