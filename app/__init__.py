@@ -1,3 +1,9 @@
+from dotenv import load_dotenv
+
+# Loading environment variables from '.env file
+# before anu other code
+load_dotenv()
+
 from flask import Flask
 from app.extensions import initialize_extensions
 from app.routes import register_blueprints

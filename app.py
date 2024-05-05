@@ -1,9 +1,3 @@
-from dotenv import load_dotenv
-
-# Loading environment variables from '.env file
-# before anu other code
-load_dotenv()
-
 from app import create_app
 from os import getenv
 
