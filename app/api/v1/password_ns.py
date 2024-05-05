@@ -48,6 +48,7 @@ parser.add_argument(
 
 
 @ns.route("/generate/")
+@ns.route("/generate")
 class Generate(Resource):
     @ns.expect(parser, validate=True)
     def get(self):
