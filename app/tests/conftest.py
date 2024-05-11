@@ -1,13 +1,14 @@
 import pytest
 from flask import Flask
-from app import create_app
 
 
 @pytest.fixture()
 def app():
-    app = create_app(flask_env="testing")
+    from app import create_app
 
-    yield app
+    app = create_app(flask_env="testing")
+    with app.app_context():
+        yield app
 
 
 @pytest.fixture()
