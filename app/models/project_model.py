@@ -7,7 +7,7 @@ class Project:
             {
                 "title": "Simple Calculator",
                 "description": "This is simple calculator project where I learn basics of HTML and Java Script.",
-                "url": url_for("projects.route", project_name="calculator"),
+                "url": url_for("projects.calculator_index"),
                 "image_url": url_for(
                     "static",
                     filename="images/projects/calculator/thumbnail.jpg",
@@ -22,7 +22,7 @@ class Project:
                     " HTML forms using Flask extensions. Extensions used:"
                     " Flask-JSON, FLASK-RESTX, Flask-WTF."
                 ),
-                "url": url_for("projects.route", project_name="password-generator"),
+                "url": url_for("projects.password_generator_index"),
                 "image_url": url_for(
                     "static",
                     filename="images/projects/password-generator/thumbnail.png",

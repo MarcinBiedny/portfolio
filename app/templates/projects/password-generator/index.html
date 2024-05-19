@@ -3,34 +3,4 @@
 {% block heading %}Password Generator{% endblock heading %}
 
 {% block content %}
-<form id="passwordGeneratorForm">
-    <div class="form-group">
-        <label for="passwordLength">Password length</label>
-        <input type="number" value="24" class="form-control" id="passwordLength" aria-describedby="passwordLengthHelp">
-        <small id="passwordLenghtHelp" class="form-text text-muted">
-            Longer password is more secure. Allowed values: 8 - 24.</small>
-    </div>
-    <br>
-    <div class="form-check form-check-inline">
-        <input type="checkbox" class="form-check-input" id="includeUppercase">
-        <label class="form-check-label" for="includeUppercase">Include uppercase letters</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input type="checkbox" class="form-check-input" id="includeNumbers">
-        <label class="form-check-label" for="includeNumbers">Include digits</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input type="checkbox" class="form-check-input" id="includeSpecialChars">
-        <label class="form-check-label" for="includeSpecialChars">Include special characters</label>
-    </div>
-    <br><br>
-    <button type="button" onclick="sendForm()" class="btn btn-primary">Submit</button>
-</form>
-<h2>
-    <div id="result"></div>
-</h2>
 {% endblock content %}
-
-{% block script %}
-<script src="{{ url_for('static', filename='js/projects/password-generator/scripts.js') }}"></script>
-{% endblock script %}
