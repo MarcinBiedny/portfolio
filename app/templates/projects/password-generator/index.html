@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Project: Password Generator{% endblock title %}
+{% block heading %}Password Generator{% endblock heading %}
+
+{% block content %}
+<form id="passwordGeneratorForm" method="post">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.password_length.label() }}
+        {{ form.password_length }}
+    </div>
+    <br>
+    {% for field in form if field.type == 'BooleanField' %}
+    <div class="form-check form-check-inline">
+        {{ field.label() }}
+        {{ field }}
+    </div>
+    {% endfor %}
+    <br><br>
+
+    {{ form.submit() }}
+</form>
+{% if password %}
+<br>
+<h2>
+    <div id="result">
+            <h2>Generated password: {{ password }}</h2>
+    </div>
+</h2>
+{% endif %}
+{% endblock content %}
