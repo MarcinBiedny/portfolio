@@ -4,6 +4,7 @@ services:
       context: .docker/app
       args:
         USER_NAME: ${USER_NAME}
+        LOG_DIR: ${LOG_DIR}
     volumes:
       - .:/app
     working_dir: /app
