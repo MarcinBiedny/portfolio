@@ -6,6 +6,7 @@ services:
         USER_NAME: ${USER_NAME}
         LOG_DIR: ${LOG_DIR}
     volumes:
+      - ./logs:${LOG_DIR}
       - .:/app
     working_dir: /app
     command: /usr/bin/bash /app/.docker/app/entrypoint.sh
