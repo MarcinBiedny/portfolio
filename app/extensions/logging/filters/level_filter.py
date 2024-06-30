@@ -2,11 +2,11 @@ import logging
 
 
 class LevelFilter(logging.Filter):
-    level = 0
+    _level = 0
 
     def __init__(self, level: int = logging.DEBUG) -> None:
-        self.level = level
+        self._level = level
         super().__init__()
 
     def filter(self, record):
-        return record.levelno == self.level
+        return record.levelno == self._level

@@ -104,5 +104,16 @@ class Config(object):
                 "level": "DEBUG",
                 "propagate": True,
             },
+            "werkzeug": {
+                "handlers": [
+                    "debug_file_handler",
+                    "info_file_handler",
+                    "warning_file_handler",
+                    "error_file_handler",
+                    "critical_file_handler",
+                ],
+                "level": "DEBUG",
+                "propagate": True,
+            },
         },
     }
