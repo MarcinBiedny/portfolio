@@ -8,6 +8,7 @@
 from flask_restx import Namespace, Resource, reqparse, inputs
 from flask_json import json_response
 from app.services.password_generator import PasswordGenerator
+from flask import current_app
 
 
 ns = Namespace(name="password", description="Password namespace")
@@ -63,6 +64,7 @@ class Generate(Resource):
                 password_length=args.password_length,
             )
         except Exception as e:
+            current_app.logger.critical(e)
             return json_response(
                 message=str("Sorry, something went wrong. We are working on it!"),
                 status_=500,
