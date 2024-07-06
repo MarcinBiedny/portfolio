@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 # before anu other code
 load_dotenv()
 
+import logging
 from flask import Flask
 from app.extensions import initialize_extensions
 from app.routes import register_blueprints
@@ -17,5 +18,7 @@ def create_app(flask_env: str):
     register_error_handlers(app)
     register_blueprints(app)
     initialize_extensions(app)
+
+    app.logger = logging.getLogger(app.config["APP_LOGGER_NAME"])
 
     return app
