@@ -24,7 +24,7 @@ class Config(object):
     # logging
     # https://docs.python.org/3/library/logging.config.html#logging.config.dictConfig
     DEFAULT_LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-    DEFAULT_LOG_DATEFMT = "%Y-%m-%d %H:%M%S"
+    DEFAULT_LOG_DATEFMT = "%Y-%m-%d %H:%M:%S"
     LOG_DIR = getenv("LOG_DIR")
     APP_LOGGER_NAME = getenv("APP_LOGGER_NAME")
 
