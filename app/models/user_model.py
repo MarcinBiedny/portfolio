@@ -9,6 +9,7 @@ class User(db.Model, UserMixin):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     username: Mapped[str] = mapped_column(String(80), unique=True, nullable=False)
+    password: Mapped[str] = mapped_column(String(80), nullable=False)
     name: Mapped[str] = mapped_column(String(80), unique=False, nullable=False)
     last_name: Mapped[str] = mapped_column(String(80), unique=False, nullable=False)
     email: Mapped[str] = mapped_column(String(120))

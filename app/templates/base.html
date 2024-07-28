@@ -11,45 +11,21 @@
 </head>
 
 <body>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-            <div class="container-fluid">
-                <!-- TODO: add GitHub link to be injected into template from app config-->
-                <a class="navbar-brand" href="https://github.com/MarcinBiedny/portfolio" target="_blank">
-                    <img src="{{ url_for('static', filename='images/navbar-logo.png') }}" height="40" width="50">
-                    <span class="text-primary-emphasis">Let's learn!</span></span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link {{ 'active' if request.path == url_for('home.route') }}" href="{{ url_for('home.route') }}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ 'active' if request.path == url_for('projects.index') }}" href="{{ url_for('projects.index') }}">Projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ 'active' if request.path == url_for('contact.route') }}" href="{{ url_for('contact.route') }}">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="alert alert-info">
+        {% for message in messages %}
+            {{ message }}<br>
+        {% endfor %}
     </div>
-    <div class="container">
-        <h1>{% block heading %}{% endblock heading %}</h1>
-    </div>
-    <div class="container">
-        {% block content %}{% endblock content %}
-    </div>
+    {% endif %}
+{% endwith %}
+{% block body %}{% endblock body %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    {% block script %}{% endblock script %}
+{% block script %}{% endblock script %}
 </body>
 
 </html>
