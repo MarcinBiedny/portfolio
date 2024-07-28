@@ -25,6 +25,11 @@
                             <a class="nav-link {{ 'active' if request.path == url_for('contact.route') }}" href="{{ url_for('contact.route') }}">Contact</a>
                         </li>
                     </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('logout.route') }}">Logout</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>

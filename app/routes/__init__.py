@@ -5,6 +5,7 @@ from app.routes import (
     projects_route,
     contact_route,
     login_route,
+    logout_route,
 )
 
 
@@ -13,3 +14,4 @@ def register_blueprints(app: Flask):
     app.register_blueprint(projects_route.bp)
     app.register_blueprint(contact_route.bp)
     app.register_blueprint(login_route.bp)
+    app.register_blueprint(logout_route.bp)
