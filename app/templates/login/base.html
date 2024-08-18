@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="container">
+        <h2>{% block login_h2 %}{% endblock login_h2 %}</h2>
+    </div>
+    <div class="container">
+        <form id="loginForm" method="post">
+            {{ form.hidden_tag() }}
+            {% for field in form if field.type not in ['SubmitField', 'CSRFTokenField'] %}
+            <div class="form-group">
+                {{ field.label() }}
+                {{ field }}
+            </div>
+            <br>
+            {% endfor %}
+            <br>
+            {{ form.submit() }}
+        </form>
+    </div>
+{% endblock body %}
