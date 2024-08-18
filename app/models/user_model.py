@@ -16,3 +16,7 @@ class User(db.Model, UserMixin):
 
     def getName(self):
         return self.name
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
