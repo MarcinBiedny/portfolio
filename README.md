@@ -7,6 +7,14 @@ I’m a beginner programmer, but I’m full of passion and eager to keep growing
 
 Feel free to explore my work and follow my progress.
 
+## Learning goals
+- SOLID Principles: Ensuring that the code is modular, maintainable, and scalable.
+- DRY (Don't Repeat Yourself): Writing reusable code to avoid redundancy.
+- Docker: Containerizing the application for consistent development and deployment environments.
+- MySQL: Using a relational database to store and manage data.
+- Flask: Building web applications using the Flask framework.
+- Flask Extensions: Utilizing various Flask extensions for added functionality (e.g., Flask-SQLAlchemy, Flask-Migrate).
+
 ## Folder structure:
 
     portfolio/
@@ -44,19 +52,19 @@ Feel free to explore my work and follow my progress.
 - `.docker/`
   - `app`: Contains Docker configurations specific to `app` service, like Dockerfile, entry-point scripts etc.,
 - `app`: Holds the source code of the application,
-  - `api`: Code that generates a password based on defined criteria,
+  - `api`: Defining resources and logic for application API,
   - `config`: Place for config classes to be used in `app.config.from_object` based on provided `.env` values,
   - `controllers`: Business logic, connects models and routes,
-  - `error_handlers`: Handler for custom error pages,
+  - `error_handlers`: Custom application error handlers,
   - `extensions`: Scripts for initializations of Flask extensions,
-  - `forms`: Place with defined login forms and creating a new user,
+  - `forms`: Flask-WTF HTML form classes are located here,
   - `models`: Data models with business logic and corresponding DB table (handled by Flask-SQLAlchemy),
   - `routes`: URL routing using Flask Blueprints,
-  - `services`: Code used to generate random passwords with specific properties,
+  - `services`: Services classes to encapsulate internal application bussiness logic,
   - `static`: css, images and js static files for websites,
-  - `templates`: HTML templates, Jinja2 templating engine,
+  - `templates`: HTML templates, Jinja2 template engine,
   - `tests`: Place to test individual application functionalities,
-- `logs`: Logs divided into: `critical`, `debug`, `error`, `info`, `warning`,
+- `logs`: Docker mounted path with application logs,
 - `migrations`: Flask-Migrate work folder for storing migrations versions and configurations,
   - `versions`: Individual migration files,
 - `app.py`: Main entry point, initializes and runs Flask application,
@@ -95,7 +103,8 @@ Press CTRL+C to quit
 Open the [localhost:5000](http://localhost:5000) or [127.0.0.1:5000](http://127.0.0.1:5000) link.
 You should be seeing the application home page.
 
-The first time the website is launched, the user must create a new account. On subsequent visits, log in to the previously created account.
+**The first time the website is launched, the user will be asked to create a new account.<br>
+On subsequent visits, please use the credentials provided on initial user creation.**
 
 Only after logging in can you read the content of the website.
 
