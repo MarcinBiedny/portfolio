@@ -3,7 +3,6 @@ from app.models.user_model import User
 
 
 def index():
-    user = User().query.filter_by(id=1).first()
-    name = "Anonymous" if user == None else user.getName()
+    user = User().query.first()
 
-    return render_template("home.html", name=name)
+    return render_template("home.html", name=user.getName())
