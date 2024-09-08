@@ -1,4 +1,5 @@
 # Portfolio
+
 Hello!
 
 Welcome to the beginning of my programming journey! This portfolio showcases my first project, where I combined various technologies and tools to learn by doing. Each part of this project reflects how I gradually developed my skills, exploring different aspects of programming.
@@ -7,13 +8,28 @@ I’m a beginner programmer, but I’m full of passion and eager to keep growing
 
 Feel free to explore my work and follow my progress.
 
+## Project info:
+
+| Tool category         | Tool name            |
+|-----------------------|----------------------|
+| IDE                   | Visual Studio Code   |
+| SCM                   | GIT                  |
+| Project management    | Jira                 |
+| Project documentation | Confluence           |
+| Environment           | Docker               |
+| Language / Framework  | Python 3.x / Flask 3 |
+| Database              | MySQL 8.0.x          |
+
 ## Learning goals
-- SOLID Principles: Ensuring that the code is modular, maintainable, and scalable.
-- DRY (Don't Repeat Yourself): Writing reusable code to avoid redundancy.
-- Docker: Containerizing the application for consistent development and deployment environments.
-- MySQL: Using a relational database to store and manage data.
-- Flask: Building web applications using the Flask framework.
-- Flask Extensions: Utilizing various Flask extensions for added functionality (e.g., Flask-SQLAlchemy, Flask-Migrate).
+
+- SOLID Principles: Ensuring that the code is modular, maintainable, and scalable
+- DRY (Don't Repeat Yourself): Writing reusable code to avoid redundancy
+- Containerizing the application for consistent development and deployment environments
+- Using a relational database to store and manage data in conjunction with Flask-SQLAlchemy ORM
+- Using database migrations
+- Building basic web basic applications using the Flask framework
+- Utilizing various Flask extensions for added functionality (e.g., Flask-SQLAlchemy, Flask-Migrate)
+- API resources and logic creation
 
 ## Folder structure:
 
